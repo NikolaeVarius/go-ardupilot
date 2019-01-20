@@ -12,6 +12,7 @@ Project to try and get a ardupilot powered drone flying based on the gobot frame
 - Rapsberry Pi 3
 - gstreamer
 - http://z25.org/static/_rd_/videostreaming_intro_plab/
+- https://github.com/thaytan/gst-rpicamsrc
 
 
 #### Personal Notes Rapsberry Pi
