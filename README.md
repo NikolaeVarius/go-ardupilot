@@ -23,3 +23,17 @@ Project to try and get a ardupilot powered drone flying based on the gobot frame
   gstreamer1.0-plugins-ugly
 
 
+Run ```rpi-update``` for v4L2 drivers and ```modprobe bcm2835-v4l2``` to load it if camera doesn't work?
+
+
+##### Getting Stream to work
+
+Run following command on PI
+```
+gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw,width=640,height=480,framerate=30/1 ! videoconvert ! jpegenc !  rtpjpegpay !  udpsink host=<ip of recieveing host> port=xxxx
+```
+
+Recieving Data
+```
+gst-launch-1.0 udpsrc port=5200 !  application/x-rtp, encoding-name=JPEG,payload=26 !  rtpjpegdepay !  jpegdec ! videoconvert ! autovideosink
+```
