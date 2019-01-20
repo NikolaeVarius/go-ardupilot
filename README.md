@@ -28,20 +28,39 @@ Run ```rpi-update``` for v4L2 drivers and ```modprobe bcm2835-v4l2``` to load it
 
 
 ##### Getting Stream to work
-
-Run following command on PI
-```
-gst-launch-1.0 -v v4l2src device=/dev/video0  ! "video/x-h264,width=640, height=480,framerate=30/1" ! h264parse ! queue ! rtph264pay config-interval=1 pt=96 ! gdppay ! udpsink host=IP port=5000
-
-```
+Starting Recieve Server First
 
 Recieving Data
 ```
- gst-launch-1.0 udpsrc port=5000 \                                                                                                
-    ! gdpdepay \
-    ! rtph264depay \
-    ! avdec_h264 \
-    ! videoconvert \
-    ! autovideosink sync=false
-
+gst-launch-1.0 udpsrc port=5000 \
+! gdpdepay \
+! rtph264depay \
+! avdec_h264 \
+! videoconvert \
+! autovideosink sync=false
 ```
+
+
+Run following command on PI
+Using v4l2src
+```
+gst-launch-1.0 v4l2src device=/dev/video0 \
+! video/x-h264,width=640,height=480,framerate=30/1 \
+! h264parse \
+! queue \
+! rtph264pay config-interval=1 pt=96 \
+! gdppay \
+! udpsink host=<ip of recieveing host> port=5000
+```
+
+Using rpicamsrc
+```
+gst-launch-1.0 rpicamsrc bitrate=1000000 \
+! 'video/x-h264,width=640,height=480' \
+! h264parse \
+! queue \
+! rtph264pay config-interval=1 pt=96 \
+! gdppay \
+! udpsink host=[INSERT_IP_ADDR] port=5000
+```
+
