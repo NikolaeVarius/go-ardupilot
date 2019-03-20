@@ -13,7 +13,9 @@ Project to try and get a ardupilot powered drone flying based on the gobot frame
 - gstreamer
 - http://z25.org/static/_rd_/videostreaming_intro_plab/
 - https://github.com/thaytan/gst-rpicamsrc
+- http://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
 
+### Installing on Arch
 
 #### Personal Notes Rapsberry Pi
 1. Probably don't need to use upstream repo
@@ -64,3 +66,10 @@ gst-launch-1.0 rpicamsrc bitrate=1000000 \
 ! udpsink host=[INSERT_IP_ADDR] port=5000
 ```
 
+## Useful Links
+### Mavlink Docs
+https://mavlink.io/en/
+
+### Mavlink for Golang
+https://github.com/liamstask/go-mavlink
+https://github.com/ungerik/go-mavlink
