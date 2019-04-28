@@ -66,6 +66,9 @@ gst-launch-1.0 rpicamsrc bitrate=1000000 \
 ! udpsink host=[INSERT_IP_ADDR] port=5000
 ```
 
+## Credits
+Using classifier data from https://github.com/hybridgroup/gocv/blob/master/data/haarcascade_frontalface_default.xml
+
 ## Useful Links
 ### Mavlink Docs
 https://mavlink.io/en/
