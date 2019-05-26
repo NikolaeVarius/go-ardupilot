@@ -15,19 +15,37 @@ Project to try and get a ardupilot powered drone flying based on the gobot frame
 - https://github.com/thaytan/gst-rpicamsrc
 - http://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
 
-### Installing on Arch
+### Installing on Linux
+Manjaro/Arch
 
-#### Personal Notes Rapsberry Pi
+TODO
+
+
+##### ROS
+Plan is to connect a Laptop running as a ROS Master to a companion computer (Rasperry Pi Initially) also running ROS to communitcate to FC via Mavlinks ROS Bridge
+
+Installation of stack is a PITA
+
+ROS + MAVLINK w/ PIXHAWK
+https://dev.px4.io/en/ros/mavros_installation.html
+
+Raspberry Pi Specific (ROS Kinetic)
+https://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
+
+
+#### Personal Notes on setting up Rapsberry Pi
+Notes for setting up Raspberry pi to either recieve remote video stream or use local camera to process/record video for Tensorflow/OpenCV/arbitrary video processor.
+
+
 1. Probably don't need to use upstream repo
 2. sudo apt-get install gstreamer1.0-tools \
   gstreamer1.0-plugins-base \
   gstreamer1.0-plugins-good \
-  gstreamer1.0-plugins-bad \
+  gstreamgithub.nikioer1.0-plugins-bad \
   gstreamer1.0-plugins-ugly
 
 
 Run ```rpi-update``` for v4L2 drivers and ```modprobe bcm2835-v4l2``` to load it if camera doesn't work?
-
 
 ##### Getting Stream to work
 Starting Recieve Server First
@@ -65,6 +83,7 @@ gst-launch-1.0 rpicamsrc bitrate=1000000 \
 ! gdppay \
 ! udpsink host=[INSERT_IP_ADDR] port=5000
 ```
+
 
 ## Credits
 Using classifier data from https://github.com/hybridgroup/gocv/blob/master/data/haarcascade_frontalface_default.xml
