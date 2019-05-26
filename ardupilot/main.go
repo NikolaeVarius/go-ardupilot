@@ -16,11 +16,12 @@ func main() {
 		iris.Once(iris.Event("packet"), func(data interface{}) {
 			packet := data.(*common.MAVLinkPacket)
 
+			// Don't know what this is doing
 			dataStream := common.NewRequestDataStream(100,
 				packet.SystemID,
 				packet.ComponentID,
 				4,
-				1,
+				2,
 			)
 			iris.SendPacket(common.CraftMAVLinkPacket(packet.SystemID,
 				packet.ComponentID,
@@ -31,6 +32,7 @@ func main() {
 		iris.On(iris.Event("message"), func(data interface{}) {
 			if data.(common.MAVLinkMessage).Id() == 30 {
 				message := data.(*common.Attitude)
+				fmt.Println(message)
 				fmt.Println("Attitude")
 				fmt.Println("TIME_BOOT_MS", message.TIME_BOOT_MS)
 				fmt.Println("ROLL", message.ROLL)
@@ -40,6 +42,8 @@ func main() {
 				fmt.Println("PITCHSPEED", message.PITCHSPEED)
 				fmt.Println("YAWSPEED", message.YAWSPEED)
 				fmt.Println("")
+			} else {
+				fmt.Println(data.(common.MAVLinkMessage).Id())
 			}
 		})
 	}
