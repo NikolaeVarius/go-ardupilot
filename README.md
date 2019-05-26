@@ -1,6 +1,6 @@
 # go-ardupilot
 
-Project to try and get a ardupilot powered drone flying based on the gobot framework
+Project to try and get a ardupilot powered drone flying based on the gobot framework, but also non autopiloted drones such as a tiny whoop.
 
 
 ## Prerequisites
@@ -72,6 +72,7 @@ Using classifier data from https://github.com/hybridgroup/gocv/blob/master/data/
 ## Useful Links
 ### Mavlink Docs
 https://mavlink.io/en/
+http://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
 
 ### Mavlink for Golang
 
@@ -79,3 +80,7 @@ https://github.com/gswly/gomavlib
 https://github.com/liamstask/go-mavlink (Dead?)
 https://github.com/ungerik/go-mavlink (Dead?)
 https://github.com/SpaceLeap/go-mavlink (Dead?)
+
+### ROS
+http://www.ros.org/
+https://downloads.ubiquityrobotics.com/pi.html
