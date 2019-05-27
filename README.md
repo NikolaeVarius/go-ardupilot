@@ -14,8 +14,11 @@ Project to try and get a ardupilot powered drone flying based on the gobot frame
 - http://z25.org/static/_rd_/videostreaming_intro_plab/
 - https://github.com/thaytan/gst-rpicamsrc
 - http://ardupilot.org/dev/docs/raspberry-pi-via-mavlink.html
+- 
 
 ### Installing on Linux
+Highly recommend using ubuntu. AUR for ROS kinetic was not working properly as of writing 
+
 Manjaro/Arch
 
 TODO
@@ -28,6 +31,7 @@ Installation of stack is a PITA
 
 ROS + MAVLINK w/ PIXHAWK
 https://dev.px4.io/en/ros/mavros_installation.html
+http://ardupilot.org/dev/docs/ros.html
 
 Raspberry Pi Specific (ROS Kinetic)
 https://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
